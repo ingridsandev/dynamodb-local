@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "EOy73Ovq0Y4g0+PfUnCq2IlnNUlC1XOwS+lRUrrzvHO2tOe1vyg3TH5q+CHHdDClihQW1U5jdlaheueXfL+y+w==",
+  "success": true,
+  "projectFilePath": "/Users/ingrid.santos/Documents/Personal/dynamodb-local/DynamoDB.Local/DynamoDB.Local.csproj",
+  "expectedPackageFiles": [
+    "/Users/ingrid.santos/.nuget/packages/awssdk.core/3.5.0-beta/awssdk.core.3.5.0-beta.nupkg.sha512",
+    "/Users/ingrid.santos/.nuget/packages/awssdk.dynamodbv2/3.5.0-beta/awssdk.dynamodbv2.3.5.0-beta.nupkg.sha512",
+    "/Users/ingrid.santos/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
