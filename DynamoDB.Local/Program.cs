@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 using Amazon;
 using Amazon.DynamoDBv2;
@@ -11,10 +12,7 @@ namespace AwsDynamoDbReplicateSchema
     {
         static async Task Main()
         {
-            var (args, isThereAnyNullArgs) = ValidateNullArguments();
-            
-            if (isThereAnyNullArgs)
-                return;
+            var args = GetArguments();
 
             // Create server client
             var serverClient = new AmazonDynamoDBClient(args.AwsAccessKeyId, args.AwsSecretAccessKey,
@@ -64,14 +62,9 @@ namespace AwsDynamoDbReplicateSchema
             }
         }
 
-        private static (Arguments, bool) ValidateNullArguments()
+        private static Arguments GetArguments()
         {
-            static void Log(string propertyName)
-            {
-                Console.WriteLine($"{propertyName} should not be null");
-            }
-
-            var response = new Arguments
+            var result = new Arguments
             {
                 AwsAccessKeyId = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID"),
                 AwsSecretAccessKey = Environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY"),
@@ -79,32 +72,19 @@ namespace AwsDynamoDbReplicateSchema
                 Tables = Environment.GetEnvironmentVariable("TABLES")?.Split(";")
             };
 
-            foreach (var property in response.GetType().GetProperties())
+            var missingEnvVars = new StringBuilder();
+
+            missingEnvVars.Append(null == result.AwsAccessKeyId ? "[AWS_ACCESS_KEY_ID]" : null);
+            missingEnvVars.Append(null == result.AwsSecretAccessKey ? "[AWS_SECRET_ACCESS_KEY]" : null);
+            missingEnvVars.Append(null == result.ServiceUrl ? "[SERVICE_URL]" : null);
+            missingEnvVars.Append(null == result.Tables ? "[TABLES]" : null);
+
+            if (missingEnvVars.Length > 0)
             {
-                dynamic value;
-                
-                if (property.PropertyType == typeof(string))
-                {
-                    value = (string) property.GetValue(response);
-                    if (string.IsNullOrWhiteSpace(value))
-                    {
-                        Log(property.Name);
-                        return (response, true);
-                    }
-                }
-                
-                if (property.PropertyType == typeof(IEnumerable<string>))
-                {
-                    value = (IEnumerable<string>) property.GetValue(response);
-                    if (value == null)
-                    {
-                        Log(property.Name);
-                        return (response, true);
-                    }
-                }
+                throw new Exception($"Missing following environment variables: {missingEnvVars.ToString()}");
             }
-            
-            return (response, false);
+
+            return result;
         }
 
         private class Arguments
