@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Amazon;
@@ -43,11 +44,19 @@ namespace AwsDynamoDbReplicateSchema
                     var localResponse = await localClient.CreateTableAsync(new CreateTableRequest
                     {
                         AttributeDefinitions = serverResponse.Table.AttributeDefinitions,
-                        ProvisionedThroughput = new ProvisionedThroughput
+                        LocalSecondaryIndexes = serverResponse.Table.LocalSecondaryIndexes.Select(x => new LocalSecondaryIndex
                         {
-                            ReadCapacityUnits = serverResponse.Table.ProvisionedThroughput.ReadCapacityUnits,
-                            WriteCapacityUnits = serverResponse.Table.ProvisionedThroughput.WriteCapacityUnits
-                        },
+                            IndexName = x.IndexName,
+                            KeySchema = x.KeySchema,
+                            Projection = x.Projection
+                        }).ToList(),
+                        GlobalSecondaryIndexes = serverResponse.Table.GlobalSecondaryIndexes.Select(x => new GlobalSecondaryIndex
+                        {
+                            IndexName = x.IndexName,
+                            KeySchema = x.KeySchema,
+                            Projection = x.Projection,
+                            ProvisionedThroughput = new ProvisionedThroughput { ReadCapacityUnits = x.ProvisionedThroughput.ReadCapacityUnits, WriteCapacityUnits = x.ProvisionedThroughput.WriteCapacityUnits }
+                        }).ToList(),
                         TableName = serverResponse.Table.TableName,
                         KeySchema = serverResponse.Table.KeySchema
                     });

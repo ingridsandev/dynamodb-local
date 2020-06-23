@@ -1,0 +1,16 @@
+/Users/ingrid.santos/Documents/Personal/dynamodb-local/DynamoDB.Local/obj/Debug/netcoreapp3.1/DynamoDB.Local.csprojAssemblyReference.cache
+/Users/ingrid.santos/Documents/Personal/dynamodb-local/DynamoDB.Local/obj/Debug/netcoreapp3.1/DynamoDB.Local.csproj.CoreCompileInputs.cache
+/Users/ingrid.santos/Documents/Personal/dynamodb-local/DynamoDB.Local/obj/Debug/netcoreapp3.1/DynamoDB.Local.AssemblyInfoInputs.cache
+/Users/ingrid.santos/Documents/Personal/dynamodb-local/DynamoDB.Local/obj/Debug/netcoreapp3.1/DynamoDB.Local.AssemblyInfo.cs
+/Users/ingrid.santos/Documents/Personal/dynamodb-local/DynamoDB.Local/bin/Debug/netcoreapp3.1/DynamoDB.Local.deps.json
+/Users/ingrid.santos/Documents/Personal/dynamodb-local/DynamoDB.Local/bin/Debug/netcoreapp3.1/DynamoDB.Local.runtimeconfig.json
+/Users/ingrid.santos/Documents/Personal/dynamodb-local/DynamoDB.Local/bin/Debug/netcoreapp3.1/DynamoDB.Local.runtimeconfig.dev.json
+/Users/ingrid.santos/Documents/Personal/dynamodb-local/DynamoDB.Local/bin/Debug/netcoreapp3.1/DynamoDB.Local.dll
+/Users/ingrid.santos/Documents/Personal/dynamodb-local/DynamoDB.Local/bin/Debug/netcoreapp3.1/DynamoDB.Local.pdb
+/Users/ingrid.santos/Documents/Personal/dynamodb-local/DynamoDB.Local/bin/Debug/netcoreapp3.1/AWSSDK.Core.dll
+/Users/ingrid.santos/Documents/Personal/dynamodb-local/DynamoDB.Local/bin/Debug/netcoreapp3.1/AWSSDK.DynamoDBv2.dll
+/Users/ingrid.santos/Documents/Personal/dynamodb-local/DynamoDB.Local/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/ingrid.santos/Documents/Personal/dynamodb-local/DynamoDB.Local/obj/Debug/netcoreapp3.1/DynamoDB.Local.csproj.CopyComplete
+/Users/ingrid.santos/Documents/Personal/dynamodb-local/DynamoDB.Local/obj/Debug/netcoreapp3.1/DynamoDB.Local.dll
+/Users/ingrid.santos/Documents/Personal/dynamodb-local/DynamoDB.Local/obj/Debug/netcoreapp3.1/DynamoDB.Local.pdb
+/Users/ingrid.santos/Documents/Personal/dynamodb-local/DynamoDB.Local/obj/Debug/netcoreapp3.1/DynamoDB.Local.genruntimeconfig.cache
